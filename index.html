@@ -149,11 +149,20 @@
     <div class='gachaTop'>
       <p >【所持チケット枚数】: <text id='gachaChikeMaisuu'>0</text>枚</p>
       <button id='gachaButton'>チケットを使ってガチャを引く</button>
-      <p style='font-size: 70%; margin-top: 20px;'>※100ブロック消すごとに10枚もらえます。</p>
-      <p style='font-size: 70%;'>※所持カードを引き継ぐ場合は、先に「ふっかつのじゅもん」を読み込んでください。</p>
+      <p style='font-size: 70%; margin-top: 20px;'>※100ブロック消すごとに3枚もらえます。</p>
+      <p style='font-size: 70%;'>※R:85%,SR:12%,SSR:3%</p>
+      <p style='font-size: 70%;'>※以前の所持カードを引き継ぐ場合は、先に「ふっかつのじゅもん」を読み込んでください。</p>
     </div>
-    <img id="uramen" class='hideAnime' src='uramen_sample.png' width="160px" alt="uramen" style='top:40%; left:50%; transform:translate(-50%,-50%); position:absolute; '>
+    <img id="uramen" class='hideAnime' src='uramen_sample.png' width="160" alt="card" style='top:40%; left:50%; transform:translate(-50%,-50%); position:absolute; '>
+    <p id="tapMessage" class='hideAnime' style="position:absolute; bottom:0; left: 50%; transform: translateX(-50%); font-style: italic; font-size:50px;">-TAP-</p>
+    <p id="newMessage" class='hideAnime' style="position:absolute; top:30px; left: 70%; transform: translateX(-50%); font-style: italic; font-size:40px; color:gold">new</p>
  </div>
+  <input id="jumonNyuuryoku" placeholder='ふっかつのじゅもん' style="margin-top:50px;"></input>
+  <input type="button" value="読み込む" class='resetbutton' style="color:#FFFEFF" onclick='jumonYomikomi()'></input>
+  <div id="library"><details style="background-color:brown;">
+    <summary style="color:#fff; font-size:40px;">所持カード</summary>
+    <div><input type="button" value="ふっかつのじゅもん生成" onclick='hukkatsuSeisei()' style="margin-top:40px;"></input><p id="jumon" style="color:white;"></p></div>
+  </derails></div>
   
    </body>
   <script value='text/javascript' src='javascript.js'></script>
