@@ -1,0 +1,22 @@
+
+
+{
+    
+    "background_color": "#302777",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "https://angelbeatsow.github.io/abow/",
+    "name": "ABOW(仮)",
+    "short_name": "ABOW(仮)",
+    "icons":[
+        {
+            "src": "abow_appicon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "abow_appicon_128.png",
+            "sizes": "128x128",
+            "type": "image/png"
+        }]
+  }
