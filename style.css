@@ -203,3 +203,8 @@ input[value='ライブ']{
   opacity: 1;
   visibility: visible;
   }
+
+#library {
+  margin-top:50px;
+  margin-bottom: 50px
+}
