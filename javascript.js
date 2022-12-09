@@ -1063,7 +1063,7 @@ function jumonYomikomi(){
   console.log('check1:' + check1 + ',check2:' + check2 + ',check3:' + check3 +',check4:' + check4);
    if((check2+check3) % 8 != check1 ){
      alert('じゅもんが間違っています。a');
-     //return;
+     return;
    }
   if(check4 != (check1 * check2 * check3)% 32){
     alert('じゅもんが間違っています。b');
@@ -1072,6 +1072,7 @@ function jumonYomikomi(){
 
   alert('読み込みました!');
   isTensityan = false;
+  $('jumonNyuuryoku').value = '';
   
   //library ni hanei
   for(let a = 0; a < 3;a++){  //R,SR,SSR
