@@ -1027,6 +1027,7 @@ function jumonYomikomi(){
     gachaChike = gachaChike + 100;
     $('gachaChikeMaisuu').innerHTML = gachaChike;
     isTensityan = false;
+    $('jumonNyuuryoku').value = '';
     alert('(*≧∀≦*)');
     return;
   }
