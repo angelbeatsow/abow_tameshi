@@ -1023,7 +1023,7 @@ function jumonYomikomi(){
   let nyuuryoku = $('jumonNyuuryoku').value;
   //moji wo suuji ni henkan
   let jumonMojiN = [];
-  if(nyuuryoku =='てんしちゃんまじてんし' && gachaChike == 0 && isTensityan == true){ //saisyo dake no urawaza^~^
+  if(nyuuryoku =='てんしちゃんまじてんし' && isTensityan == true){ //saisyo dake no urawaza^~^
     gachaChike = gachaChike + 100;
     $('gachaChikeMaisuu').innerHTML = gachaChike;
     isTensityan = false;
