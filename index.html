@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html>
+  <html lang="ja">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Coda+Caption&display=swap" rel="stylesheet">
+  <style> @import url('https://fonts.googleapis.com/css2?family=Coda+Caption&display=swap'); </style>
+  <link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="abow_appicon.png" />
+<link rel="apple-touch-icon-precomposed" href="abow_appicon.png" />
+   <content="text/html; charset=UTF-8">
+    <meta name="google" value="notranslate"/>
+    <meta name="google-site-verification" content="a_QmaDekA5dgJhX54lV_ZBcJIt8eVWWiRSTqyI6Lbdg" />
+    <meta name="viewport" content="width=900, user-scalable=yes">
+    <meta name="description" content="サ終したスマホゲーム『AngelBeats~OperationWars~』(エンジェルビーツオペレーションウォーズ)の一筆書きパズルを再現した、スマホ・タブレット用ブラウザゲームです!" >
+ <title>ABOW(仮)</title>
+    </head>
+  <body>
+    <div class='titlediv' style="text-align: center">
+      <svg width="480px" height="250px">
+        <text class='titlemoji' x="50%" y="50%" text-anchor="middle" dominant-baseline="middle">ABOW(仮)</text>
+        </svg>
+    </div>
+    <div>
+       <button id='tensyonButton'>0</button>
+    </div>
+  <div class='gaugep'>
+     <div class="gauge" id="timegauge"></div>
+     <div id="fadeLayer"></div>
+     <div class="controller">
+        <input type='button' id="on" style="font-size: 17px; width:220px; " value='スクロール禁止をonにする'></input>
+     </div>
+  </div>
+  <p></p>
+    <div class='wakudiv'>
+<input type='button' class='waku' id='b01'></input>
+<input type='button' class='waku' id='b02'></input>
+<input type='button' class='waku' id='b03'></input>
+            <input type='button' class='waku' id='b04'></input>
+            <input type='button' class='waku' id='b05'></input>
+            <input type='button' class='waku' id='b06'></input>
+        </div>
+        <div class='wakudiv'>
+            <input type='button' class='waku' id='b07' value='f'></input>
+            <input type='button' class='waku' id='b08'></input>
+            <input type='button' class='waku' id='b09'></input>
+            <input type='button' class='waku' id='b10'></input>
+            <input type='button' class='waku' id='b11'></input>
+            <input type='button' class='waku' id='b12'></input>
+        </div>
+        <div class='wakudiv'>
+            <input type='button' class='waku' id='b13'></input>
+            <input type='button' class='waku' id='b14'></input>
+            <input type='button' class='waku' id='b15'></input>
+            <input type='button' class='waku' id='b16'></input>
+            <input type='button' class='waku' id='b17'></input>
+            <input type='button' class='waku' id='b18'></input>
+        </div>
+        <div class='wakudiv'>
+            <input type='button' class='waku' id='b19'></input>
+            <input type='button' class='waku' id='b20'></input>
+            <input type='button' class='waku' id='b21'></input>
+            <input type='button' class='waku' id='b22'></input>
+            <input type='button' class='waku' id='b23'></input>
+            <input type='button' class='waku' id='b24'></input>
+        </div>
+        <div class='wakudiv'>
+            <input type='button' class='waku' id='b25'></input>
+            <input type='button' class='waku' id='b26'></input>
+            <input type='button' class='waku' id='b27'></input>
+            <input type='button' class='waku' id='b28'></input>
+            <input type='button' class='waku' id='b29'></input>
+            <input type='button' class='waku' id='b30'></input>
+        </div>
+        <div class='wakudiv'>
+            <input type='button' class='waku' id='b31'></input>
+            <input type='button' class='waku' id='b32'></input>
+            <input type='button' class='waku' id='b33'></input>
+            <input type='button' class='waku' id='b34'></input>
+            <input type='button' class='waku' id='b35'></input>
+            <input type='button' class='waku' id='b36'></input>
+        </div>
+        <div>
+          </div>
+          
+<div style='background-color:rgb(10, 12, 9); padding:20px; margin: 0 auto; margin-top: 20px; font-size: 20px; width:500px;' >
+  <div style="color:#FFFEFF">&#12298戦績&#12299</div>
+  <div style="color:#FFFEFF">経過ターン数: <text style="color:rgb(248, 247, 27)" id='sensekiTurn'>0</text>ターン</div>
+  <div style="color:#FFFEFF">消したブロック数合計: <text style="color:rgb(248, 247, 27)" id='sensekiTotal'>0</text>個</div>
+  <div style="color:#FFFEFF">一度に消したブロック最大数: <text style="color:rgb(248, 247, 27)" id='sensekiRensa'>0</text>個</div>
+  <div style="color:#FFFEFF">一度に消したブロック平均数: <text style="color:rgb(248, 247, 27)" id='sensekiRensaHeikin'>0</text>個</div>
+  <div style="color:#FFFEFF">最大コンボ数: <text style="color:rgb(248, 247, 27)" id='sensekiCombo'>0</text>コンボ</div>
+  <div style="color:#FFFEFF">平均コンボ数: <text style="color:rgb(248, 247, 27)" id='sensekiComboHeikin'>0</text>コンボ</div>
+  <div style="color:#FFFEFF">ハイテンション: <text style="color:rgb(248, 247, 27)" id='sensekiTensyon'>0</text>回</div>
+  <div style='margin: 0 auto;'><button id='tweetButton' style='background-color:rgb(50, 168, 224); color:#FFFFFF'>ツイート</button>
+  </div>
+</div>
+          
+<div style='margin-top:30px; margin-bottom:30px;'><text style="color:#FFFEFF">操作時間+3秒を</text>
+  <input type='button' id='sanbyouOn' value='onにする' class='resetbutton' style='width:150px;'></input>
+</div>
+
+        <div class='resetbuttondayo'>
+            <input type='button' value='配置をシャッフル' id='reset' class='resetbutton'></input>
+        </div> 
+        
+        <div style='margin: 0 auto;'>
+          <p><label for='volrange'><text style="color:#FFFEFF">効果音の音量</text></label>
+            <input type="range" min="0" max="10" step="1" value="5" id='volrange'>
+            <text style="color:#FFFEFF; font-size:50%; margin-left:50px">(効果音:魔王魂)</text>
+            </p>
+          </div>
+          
+    <div id='bgm' class='bgmselectdiv'>
+      <select id="bgmSelect" size="23" style="font-size:20px;border:1px;">
+    <option value="m01" selected>Alchemy</option>
+    <option value="m02">Crow Song</option>
+    <option value="m03">23:50</option>
+    <option value="m04">Little Braver(Album ver.)</option>
+    <option value="m05">Storm Song</option>
+        <option value="m06">My Song</option>
+        <option value="m07">God bless you</option>
+        <option value="m08">My Soul, Your Beats!(Gldemo ver.)</option>
+        <option value="m09">Shine Days</option>
+        <option value="m10">Run With Wolves</option>
+        <option value="m11">Rain Song</option>
+        <option value="m12">Morning Dreamer</option>
+        <option value="m13">Last Song</option>
+        <option value="m14">Answer Song</option>
+        <option value="m15">Highest Life</option>
+        <option value="m16">My Song(Yui ver.)</option>
+        <option value="m17">Ichiban no Takaramono(Yui ver.)</option>
+        <option value="m18">Hot Meal</option>
+        <option value="m19">Crow Song(Yui ver.)</option>
+        <option value="m20">Alchemy(Yui ver.)</option>
+        <option value="m21">Thousand Enemies</option>
+        <option value="m22">Ichiban no Takaramono(Yui final ver.)</option>
+        <option value="m23">Brave Song(Gldemo ver.)</option>
+</select>
+      <input type='button' value='ライブ' id='bgmSelectButton' class='livebutton'></button>
+    </div>
+      <div id='umekomidouga' class='umekomi'>
+    </div>
+  
+  <div id='gachaGamen' onclick='gachaGamen()'>
+    <div class='gachaTop'>
+      <p >【所持チケット枚数】: <text id='gachaChikeMaisuu'>0</text>枚</p>
+      <button id='gachaButton' onclick='gachaStart()'>チケットを使ってガチャを引く</button>
+      <p style='font-size: 70%; margin-top: 20px;'>※100ブロック消すごとに3枚もらえます。</p>
+      <p style='font-size: 70%;'>※R:85%,SR:12%,SSR:3%</p>
+      <p style='font-size: 70%;'>※以前の所持カードを引き継ぐ場合は、先に「ふっかつのじゅもん」を読み込んでください。</p>
+    </div>
+    <img id="uramen" class='hideAnime' src='uramen_sample.png' width="160" alt="card" style='top:40%; left:50%; transform:translate(-50%,-50%); position:absolute; '>
+    <p id="tapMessage" class='hideAnime' style="position:absolute; bottom:0; left: 50%; transform: translateX(-50%); font-style: italic; font-size:50px;">-TAP-</p>
+    <p id="newMessage" class='hideAnime' style="position:absolute; top:30px; left: 70%; transform: translateX(-50%); font-style: italic; font-size:40px; color:gold">new</p>
+ </div>
+  <input id="jumonNyuuryoku" placeholder='ふっかつのじゅもん' style="margin-top:50px;"></input>
+  <input type="button" value="読み込む" class='resetbutton' style="color:#FFFEFF" onclick='jumonYomikomi()'></input>
+  <div id="library"><details style="background-color:#9B623B;">
+    <summary style="color:#fff; font-size:40px;">所持カード</summary>
+    <div><input type="button" value="ふっかつのじゅもん生成" onclick='hukkatsuSeisei()' style="margin-top:40px;"></input><p id="jumon" style="color:white;"></p></div>
+    <div id="c001div" class="libraryDiv"><img id="c001img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.001<text id="c001text" class="libraryText">???</text></div>
+    <div id="c002div" class="libraryDiv"><img id="c002img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.002<text id="c002text" class="libraryText">???</text></div>
+    <div id="c003div" class="libraryDiv"><img id="c003img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.003<text id="c003text" class="libraryText">???</text></div>
+    <div id="c004div" class="libraryDiv"><img id="c004img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.004<text id="c004text" class="libraryText">???</text></div>
+    <div id="c005div" class="libraryDiv"><img id="c005img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.005<text id="c005text" class="libraryText">???</text></div>
+    <div id="c006div" class="libraryDiv"><img id="c006img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.006<text id="c006text" class="libraryText">???</text></div>
+    <div id="c007div" class="libraryDiv"><img id="c007img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.007<text id="c007text" class="libraryText">???</text></div>
+    <div id="c008div" class="libraryDiv"><img id="c008img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.008<text id="c008text" class="libraryText">???</text></div>
+    <div id="c009div" class="libraryDiv"><img id="c009img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.009<text id="c009text" class="libraryText">???</text></div>
+    <div id="c010div" class="libraryDiv"><img id="c010img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.010<text id="c010text" class="libraryText">???</text></div>
+    <div id="c011div" class="libraryDiv"><img id="c011img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.011<text id="c011text" class="libraryText">???</text></div>
+    <div id="c012div" class="libraryDiv"><img id="c012img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.012<text id="c012text" class="libraryText">???</text></div>
+    <div id="c013div" class="libraryDiv"><img id="c013img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.013<text id="c013text" class="libraryText">???</text></div>
+    <div id="c014div" class="libraryDiv"><img id="c014img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.014<text id="c014text" class="libraryText">???</text></div>
+    <div id="c015div" class="libraryDiv"><img id="c015img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.015<text id="c015text" class="libraryText">???</text></div>
+    <div id="c016div" class="libraryDiv"><img id="c016img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.016<text id="c016text" class="libraryText">???</text></div>
+    <div id="c017div" class="libraryDiv"><img id="c017img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.017<text id="c017text" class="libraryText">???</text></div>
+    <div id="c018div" class="libraryDiv"><img id="c018img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.018<text id="c018text" class="libraryText">???</text></div>
+    <div id="c019div" class="libraryDiv"><img id="c019img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.019<text id="c019text" class="libraryText">???</text></div>
+    <div id="c020div" class="libraryDiv"><img id="c020img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.020<text id="c020text" class="libraryText">???</text></div>
+    <div id="c021div" class="libraryDiv"><img id="c021img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.021<text id="c021text" class="libraryText">???</text></div>
+    <div id="c022div" class="libraryDiv"><img id="c022img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.022<text id="c022text" class="libraryText">???</text></div>
+    <div id="c023div" class="libraryDiv"><img id="c023img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.023<text id="c023text" class="libraryText">???</text></div>
+    <div id="c024div" class="libraryDiv"><img id="c024img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.024<text id="c024text" class="libraryText">???</text></div>
+    <div id="c025div" class="libraryDiv"><img id="c025img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.025<text id="c025text" class="libraryText">???</text></div>
+    <div id="c026div" class="libraryDiv"><img id="c026img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.026<text id="c026text" class="libraryText">???</text></div>
+    <div id="c027div" class="libraryDiv"><img id="c027img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.027<text id="c027text" class="libraryText">???</text></div>
+    <div id="c028div" class="libraryDiv"><img id="c028img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.028<text id="c028text" class="libraryText">???</text></div>
+    <div id="c029div" class="libraryDiv"><img id="c029img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.029<text id="c029text" class="libraryText">???</text></div>
+    <div id="c030div" class="libraryDiv"><img id="c030img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.030<text id="c030text" class="libraryText">???</text></div>
+    <div id="c031div" class="libraryDiv"><img id="c031img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.031<text id="c031text" class="libraryText">???</text></div>
+    <div id="c032div" class="libraryDiv"><img id="c032img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.032<text id="c032text" class="libraryText">???</text></div>
+    <div id="c033div" class="libraryDiv"><img id="c033img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.033<text id="c033text" class="libraryText">???</text></div>
+    <div id="c034div" class="libraryDiv"><img id="c034img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.034<text id="c034text" class="libraryText">???</text></div>
+    <div id="c035div" class="libraryDiv"><img id="c035img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.035<text id="c035text" class="libraryText">???</text></div>
+    <div id="c036div" class="libraryDiv"><img id="c036img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.036<text id="c036text" class="libraryText">???</text></div>
+    <div id="c037div" class="libraryDiv"><img id="c037img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.037<text id="c037text" class="libraryText">???</text></div>
+    <div id="c038div" class="libraryDiv"><img id="c038img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.038<text id="c038text" class="libraryText">???</text></div>
+    <div id="c039div" class="libraryDiv"><img id="c039img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.039<text id="c039text" class="libraryText">???</text></div>
+    <div id="c040div" class="libraryDiv"><img id="c040img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.040<text id="c040text" class="libraryText">???</text></div>
+    <div id="c041div" class="libraryDiv"><img id="c041img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.041<text id="c041text" class="libraryText">???</text></div>
+    <div id="c042div" class="libraryDiv"><img id="c042img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.042<text id="c042text" class="libraryText">???</text></div>
+    <div id="c043div" class="libraryDiv"><img id="c043img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.043<text id="c043text" class="libraryText">???</text></div>
+    <div id="c044div" class="libraryDiv"><img id="c044img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.044<text id="c044text" class="libraryText">???</text></div>
+    <div id="c045div" class="libraryDiv"><img id="c045img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.045<text id="c045text" class="libraryText">???</text></div>
+    <div id="c046div" class="libraryDiv"><img id="c046img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.046<text id="c046text" class="libraryText">???</text></div>
+    <div id="c047div" class="libraryDiv"><img id="c047img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.047<text id="c047text" class="libraryText">???</text></div>
+    <div id="c048div" class="libraryDiv"><img id="c048img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.048<text id="c048text" class="libraryText">???</text></div>
+    <div id="c049div" class="libraryDiv"><img id="c049img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.049<text id="c049text" class="libraryText">???</text></div>
+    <div id="c050div" class="libraryDiv"><img id="c050img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.050<text id="c050text" class="libraryText">???</text></div>
+    <div id="c051div" class="libraryDiv"><img id="c051img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.051<text id="c051text" class="libraryText">???</text></div>
+    <div id="c052div" class="libraryDiv"><img id="c052img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.052<text id="c052text" class="libraryText">???</text></div>
+    <div id="c053div" class="libraryDiv"><img id="c053img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.053<text id="c053text" class="libraryText">???</text></div>
+    <div id="c054div" class="libraryDiv"><img id="c054img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.054<text id="c054text" class="libraryText">???</text></div>
+    <div id="c055div" class="libraryDiv"><img id="c055img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.055<text id="c055text" class="libraryText">???</text></div>
+    <div id="c056div" class="libraryDiv"><img id="c056img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.056<text id="c056text" class="libraryText">???</text></div>
+    <div id="c057div" class="libraryDiv"><img id="c057img" class="libraryImg" src="cardicon_sample.png" width="80"></img>No.057<text id="c057text" class="libraryText">???</text></div>
+    
+  </derails></div>
+  
+  <div id="popup" class="popup">
+    <div class="popup-inner">
+      <div id="close-btn" class="close-btn">✖</div>
+      <div class="img"><img src="uramen_sample.png" alt="ポップアップ画像" id="popupimg"></div>
+    </div><!-- .popup-inner -->
+    <div id="bg-black" class="bg-black"></div>
+  </div><!-- #popup -->
+  
+   </body>
+  <script value='text/javascript' src='javascript.js'></script>
+                          
+                           <script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').then(function(registration) {
+    // 登録成功
+    console.log('ServiceWorker の登録に成功しました。スコープ: ', registration.scope);
+  }).catch(function(err) {
+    // 登録失敗
+    console.log('ServiceWorker の登録に失敗しました。', err);
+  });
+}
+</script>
+                           
+</html>
